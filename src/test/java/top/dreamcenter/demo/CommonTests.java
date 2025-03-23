@@ -17,7 +17,7 @@ public class CommonTests {
     @Test
     public void testWeather() {
         ServerParameters parameters = ServerParameters.builder("java")
-                .args("-jar", "jar包绝对路径")
+                .args("-jar", "-Dspring.ai.mcp.server.stdio=true", "jar包绝对路径")
                 .build();
 
         McpSyncClient client = McpClient.sync(new StdioClientTransport(parameters)).build();
